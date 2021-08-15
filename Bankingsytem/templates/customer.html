@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+<!---body--->
+{% block content %}
+
+{% load static %}
+<style>
+    body{
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtHZKv5tPCB_HnF_ltVtcGPm1dl_lLbvdbRA&usqp=CAU")
+    }
+    .btn{
+    background: #4c1a54;
+    }
+    thead{
+    background: #000032;
+    }
+    tbody{
+    background-color: #f0ecfc;
+    background-image: linear-gradient(315deg, #f0ecfc 0%, #c797eb 74%);
+    }
+
+
+
+
+
+
+
+</style>
+
+
+<div style="width: 1250px;">
+    <div class="border rounded border border-4 border-dark p-4 m-4 ">
+        <p class="display-4 pl-4 ml-4">Customer list</p>
+        <hr>
+        <table class="table table-hover table-default table table-bordered border-dark"
+               style="width: 100%; margin-top:40px;">
+
+            <thead class="text-white border-light">
+            <tr>
+                <th>Customer id</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Balance</th>
+                <th>Transfer</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for customer in customer_list%}
+            <tr class="border-dark">
+                <th scope="row">{{customer.id}}</th>
+                <td><a href="#" style="color: inherit; text-decoration: none;">{{customer.name}}</a>
+                </td>
+                <td><a href="#" style="color: inherit; text-decoration: none;">{{customer.email}}</a>
+                </td>
+                <td><a href="#" style="color: inherit; text-decoration: none;">{{customer.balance}}</a>
+                </td>
+                <td>
+                    <a class="btn btn-outline-dark text-white rounded-3" href="{% url 'customer:profile' customer.id %}" role="button">Transfer</a>
+
+                </td>
+
+            </tr>
+            {% endfor%}
+            </tbody>
+        </table>
+    </div>
+
+    {% endblock %}

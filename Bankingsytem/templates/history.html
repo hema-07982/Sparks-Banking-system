@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+<!---body--->
+{% block content %}
+
+{% load static %}
+<style>
+     body{
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtHZKv5tPCB_HnF_ltVtcGPm1dl_lLbvdbRA&usqp=CAU")
+    }
+
+    thead{
+    background: #000032;
+    }
+    tbody{
+    background-color: #f0ecfc;
+    background-image: linear-gradient(315deg, #f0ecfc 0%, #c797eb 74%);
+    }
+ </style>
+
+
+<div style="width: 1250px;">
+   <div class="border rounded border border-4 border-dark p-4 m-4 ">
+        <p class="display-4 pl-4 ml-4">Transfer List</p>
+        <hr>
+        <table class="table table-hover table-default table table-bordered border-dark"
+               style="width: 100%; margin-top:40px;">
+         <thead class="text-white border-light">
+        <tr>
+            <th scope="col" style="width: 10%;">Transfer ID</th>
+            <th scope="col" style="width: 20%;">Timestamp</th>
+            <th scope="col" style="width: 20%;">Sender</th>
+            <th scope="col" style="width: 20%;">Receiver</th>
+            <th scope="col" style="width: 10%;">Amount</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for transfer in transfer_history%}
+        <tr>
+            <th scope="row">{{transfer.id}}</th>
+            <td>{{transfer.timestamp}}</td>
+            <td>{{transfer.sender.name}}</td>
+            <td>{{transfer.receiver.name}}</td>
+            <td>{{transfer.amount}}</td>
+        </tr>
+        {% endfor%}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

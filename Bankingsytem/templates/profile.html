@@ -1,0 +1,365 @@
+{% extends 'base.html' %}
+
+<!---body--->
+{% block content %}
+
+{% load static %}
+<style>
+ body{
+ background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtHZKv5tPCB_HnF_ltVtcGPm1dl_lLbvdbRA&usqp=CAU")
+
+     }
+
+/* ===== LOGIN PAGE ===== */
+.login-box {
+  -webkit-box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.1);
+          box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 30px;
+}
+
+@media (min-width: 992px) {
+  .login-box {
+    margin: 40px 0;
+  }
+}
+
+.login-box .form-wrap {
+  padding: 30px 25px;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 10px 20px 0 rgb(76, 26, 84);
+          box-shadow: 0 10px 20px 0 rgb(76, 26, 84);
+}
+
+@media (min-width: 768px) {
+  .login-box .form-wrap {
+    padding: 45px;
+  }
+}
+
+@media (min-width: 992px) {
+  .login-box .form-wrap {
+    margin-top: -40px;
+    margin-bottom: -40px;
+    padding: 60px;
+  }
+}
+
+.login-box  {
+  -webkit-box-shadow: 0 3px 2px 0 rgb(76, 26, 84);
+          box-shadow: 0 3px 2px 0 rgb(76, 26, 84);
+}
+
+.login-section {
+  position: relative;
+  z-index: 0;
+}
+
+.login-section::after {
+  position: absolute;
+  content: '';
+  right: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.15;
+  z-index: -1;
+  background-image: url(../img/shapes/login-wave2.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top right;
+  -webkit-animation-duration: 3s;
+          animation-duration: 3s;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-name: pulse;
+          animation-name: pulse;
+}
+
+.login-section::before {
+  position: absolute;
+  content: '';
+  opacity: 0.10;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-image: url(../img/shapes/login-wave1.svg);
+  background-size: cover;
+  background-position: top right;
+  -webkit-animation-duration: 6s;
+          animation-duration: 6s;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-name: pulse;
+          animation-name: pulse;
+}
+
+.login-section .content {
+  padding: 45px;
+}
+
+.form-group  {
+    position: absolute;
+    z-index: 1;
+    color: #fff;
+    background-color: #4e63d7;
+    border-radius: 5px;
+    height: 100%;
+    width: 45px;
+    text-align: center;
+    font-size: 20px;
+    padding-top: 13px;
+}
+
+.form-group input[type='text'], .form-group input[type='email'], .form-group input[type='password'] {
+    padding-left: 60px;
+}
+
+.form-control {
+    border: 1px solid #5e3165;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border-radius: 5px;
+    -webkit-transition: all .3s ease;
+    transition: all .3s ease;
+    background-color: #fff;
+    color:#5e3165;
+    font-weight: 400;
+    position: relative;
+}
+
+
+h3 {
+    font-size: 35px;
+}
+
+
+
+.login-box .socials a {
+    -webkit-box-shadow: 0 3px 2px 0 rgba(0, 0, 0, 0.12);
+    box-shadow: 0 3px 2px 0 rgba(0, 0, 0, 0.12);
+}
+.socials a {
+    width: 35px;
+    height: 35px;
+    background-color: #6893e1;
+    border-radius: 50%;
+    -webkit-box-shadow: 0 3px 2px 0 #516cd9;
+    box-shadow: 0 3px 2px 0 #516cd9;
+    text-align: center;
+    color: #fff;
+    padding-top: 10px;
+    font-size: 16px;
+    margin-right: 10px;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+.w-20{
+background-color:#4c1a54;
+width: 140px;
+  height: 45px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #000;
+
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgb(130, 95, 135);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+}
+.w-20:hover {
+  background-color: #704876;
+  box-shadow: 0px 15px 20px , rgb(148, 118, 152);
+  color: #825f87;
+  transform: translateY(-7px);
+}
+.input-group{
+background-color: #704876;
+border-color: #704876;
+}
+.input-group-text{
+border-color: #704876;
+
+}
+.form-control{
+border-color: #704876;
+}
+.form-select{
+border-color: #704876;
+}
+
+
+
+
+
+
+
+
+
+</style>
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<div class="container">
+    {% if messages %}
+    {% for message in messages %}
+    {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+    <script>
+    Swal.fire({
+      icon: 'error',
+      title: '{{ message }}',
+      
+    
+    })
+   
+
+
+
+    </script>
+    {% endif %}
+    {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+
+    <script>
+  Swal.fire({
+    icon: 'success',
+    title: '{{ message }}'
+    
+  })
+
+
+
+
+
+    </script>
+    {% endif %}
+
+    {% endfor %}
+    {% endif %}
+
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css"
+          integrity="sha256-3sPp8BkKUE7QyPSl6VfBByBroQbKxKG7tsusY2mhbVY=" crossorigin="anonymous"/>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-11 mt-60 mx-md-auto">
+                <div class="login-box bg-white pr-lg-5 pr-0 my-5">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col-md-6 order-md-last pt-3">
+                            <div class="form-wrap bg-white">
+                                <div class="text-center">
+                                    <img src="https://i.dlpng.com/static/png/6960353_preview.png"
+                                         class="rounded-pill  border border-5 border-dark" alt="...">
+                                </div>
+
+
+                                <h2 class="btm-sep pb-3 mb-3 text-center ">Transfer Money</h2>
+                                <form method="POST">
+                                    {% csrf_token%}
+                                    <div class="input-group input-group-lg border border-3 rounded-pill ">
+                                        <span class="input-group-text border border-3 rounded-pill">$</span>
+                                        <input type="text" class="form-control border border-3 rounded-pill "
+                                               aria-label="Sizing example input"
+                                               aria-describedby="inputGroup-sizing-lg" name="amount_transfer"
+                                               placeholder="Enter Amount">
+                                    </div>
+                                    <br>
+                                    <select class="form-select form-select-lg mb-3 border border-3 rounded-pill"
+                                            aria-label=".form-select-lg example"
+                                            name="receiver">
+                                        <option selected>Select Customer</option>
+                                        {% for receiver in customer_list %}
+                                        <option value={{receiver.id}}>{{receiver.name}}</option>
+                                        {% endfor%}
+
+
+                                    </select>
+                                    <br>
+                                    <button class="w-20 btn btn-lg btn-light rounded-pill text-white" type="submit">
+                                        Send
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-6 order-md-first">
+                            <div class="content text-center">
+                                <div class="border-bottom pb-5 mb-5 my-5">
+                                    <div class="text-center">
+                                        <img src=" https://cdn.iconscout.com/icon/premium/png-256-thumb/sender-2-1130993.png"
+                                             class="rounded-pill  border border-5 border-dark" alt="...">
+                                    </div>
+                                    <h2>Sender</h2>
+                                    <h5 style="font-weight:normal;"> Name: {{sender.name}}</h5>
+                                    <h5 style="font-weight:normal;">Email: {{sender.email}}</h5>
+                                    <h5 style="font-weight:normal;  display:inline;">Balance : </h5>
+                                    <h3 style="display:inline;">{{sender.balance}}</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-----
+        <div class="container py-5" id="featured-3">
+            <h2 class="pb-2 border-bottom">Profile & Transfer Money</h2>
+            <div class="row g-5 py-5">
+                <div class="feature col-md-5">
+                    <div class="border-dark">
+                      <img src="https://static.thenounproject.com/png/223825-200.png" class="img-thumbnail" alt="...">
+                    </div>
+                    <h2>Sender</h2>
+                    <h5 style="font-weight:normal;"> Name: {{sender.name}}</h5>
+                    <h5 style="font-weight:normal;">Email: {{sender.email}}</h5>
+                    <h5 style="font-weight:normal;  display:inline;">Balance : </h5>
+                    <h3 style="display:inline;">{{sender.balance}}</h3>
+
+                </div>
+
+                <div class="feature col-md-5">
+                    <div class="feature-icon bg-primary bg-gradient">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                             class="bi bi-arrow-left-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                  d="M1 11.5a.5.5 0 0 0 .5.5h11.793l-3.147 3.146a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 11H1.5a.5.5 0 0 0-.5.5zm14-7a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H14.5a.5.5 0 0 1 .5.5z"/>
+                        </svg>
+
+                    </div>
+                    <h2>Transfer Money</h2>
+                    <form method="POST">
+                        {% csrf_token%}
+                        <div class="input-group input-group-lg">
+                            <span class="input-group-text">$</span>
+                            <input type="text" class="form-control" aria-label="Sizing example input"
+                                   aria-describedby="inputGroup-sizing-lg" name="amount_transfer" placeholder="Enter Amount">
+                        </div>
+                        <p>Send to:</p>
+                        <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="receiver">
+                            <option selected>Select Customer</option>
+                            {% for receiver in customer_list %}
+                            <option value={{receiver.id}}>{{receiver.name}}</option>
+                            {% endfor%}
+
+                        </select>
+                        <button class="w-20 btn btn-lg btn-primary" type="submit">Send</button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+        --->
+        {% endblock %}
